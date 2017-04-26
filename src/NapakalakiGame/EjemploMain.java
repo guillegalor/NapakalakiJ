@@ -1,8 +1,7 @@
 
 package NapakalakiGame;
 
-import Test.GameTester;
-import napakalaki.Napakalaki;
+
 
 public class EjemploMain {
 

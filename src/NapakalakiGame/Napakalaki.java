@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package napakalaki;
+package NapakalakiGame;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+
 
 /**
  *
@@ -106,7 +107,7 @@ public class Napakalaki {
         nextTurn();
     }
     
-    public Player getCurrentPLayer(){
+    public Player getCurrentPlayer(){
         return currentPlayer;
     }
     
