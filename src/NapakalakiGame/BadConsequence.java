@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author johanna
+ * @author johanna y guille
  */
 public class BadConsequence {
     private String text;
