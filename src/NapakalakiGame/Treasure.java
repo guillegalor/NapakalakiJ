@@ -31,4 +31,8 @@ class Treasure {
     public TreasureKind getType(){
         return type;
     }
+    
+    public String toString(){
+        return "\n" + name + "\nBonus:" + Integer.toString(bonus) + "\nTipo:" + type;
+    }
 }
