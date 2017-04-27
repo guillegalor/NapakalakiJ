@@ -5,6 +5,7 @@
  */
 package NapakalakiGame;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -88,10 +89,60 @@ public class BadConsequence {
         nHiddenTreasures = 0;
     }
     
-    public BadConsequence adjustToFitTreasureList(ArrayList<Treasure> v, ArrayList<Treasure> h){
-        //TODO
-        BadConsequence bc = null;
-        return bc;
+    public BadConsequence adjustToFitTreasureList(ArrayList<Treasure> v, ArrayList<Treasure> h) throws CloneNotSupportedException{
+        if(!isEmpty()){
+            int nVisible = nVisibleTreasures;
+            int nHidden = nHiddenTreasures;
+            if(nVisible > v.size())
+                nVisible = v.size();
+            
+            if(nHidden > h.size())
+                nHidden = h.size();
+            
+            ArrayList<TreasureKind> visibleTypes = new ArrayList();
+            ArrayList<TreasureKind> hiddenTypes = new ArrayList();
+            
+            Iterator<Treasure> itr = v.iterator();
+            while(itr.hasNext())
+               visibleTypes.add(itr.next().getType());
+            
+            itr = h.iterator();
+            
+            while(itr.hasNext())
+                hiddenTypes.add(itr.next().getType());
+            
+            ArrayList<TreasureKind> sVisibleTreasures = new ArrayList();
+            ArrayList<TreasureKind> sHiddenTreasures = new ArrayList();
+            ArrayList<TreasureKind> cpySpecificVisibleTreasures = (ArrayList<TreasureKind>) specificVisibleTreasures.clone();
+            ArrayList<TreasureKind> cpySpecificHiddenTreasures = (ArrayList<TreasureKind>) specificHiddenTreasures.clone();
+            
+            Iterator<TreasureKind> it = visibleTypes.iterator();
+            
+            while(it.hasNext()){
+                if(cpySpecificVisibleTreasures.contains(it.next())){
+                    sVisibleTreasures.add(it.next());
+                    cpySpecificVisibleTreasures.remove(it.next());
+                }
+            }
+            
+            it = hiddenTypes.iterator();
+            
+            while(it.hasNext()){
+                if(cpySpecificHiddenTreasures.contains(it.next())){
+                    sHiddenTreasures.add(it.next());
+                    cpySpecificHiddenTreasures.remove(it.next());
+                }
+            }
+            
+            if(specificHiddenTreasures.isEmpty() && specificVisibleTreasures.isEmpty())
+                return new BadConsequence(text,levels,nVisible,nHidden);
+            else
+                return new BadConsequence(text,levels,sVisibleTreasures,sHiddenTreasures);
+            
+            
+        }else
+            return (BadConsequence) this.clone();
+        
         
     }
     public String getText(){
