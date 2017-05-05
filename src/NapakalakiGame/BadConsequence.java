@@ -167,5 +167,4 @@ public class BadConsequence {
                 return "\nLose: Vissible treasures = " + specificVisibleTreasures.toString() + "Hidden treasures = " + specificHiddenTreasures.toString() + "levels = " + Integer.toString(levels) + "\n" + text;
         }
     }
-}   
-
+}

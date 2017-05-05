@@ -11,7 +11,7 @@ import java.util.Iterator;
 
 /**
  *
- * @author johanna
+ * @author johanna, guille
  */
 public class Player {
     private String name;
@@ -279,8 +279,9 @@ public class Player {
         
     }
     
+    @Override
     public String toString(){
-        return name;
+        return "\nName: " + name + "\nLevel: " + Integer.toString(level) + "\nDeath: " + (death ? "Si" : "No") + "\nCan I steal?" + (canISteal ? "Yes" : "No") + "\nEnemy: " + ((enemy == null) ? "" : enemy.name) + "\nPending Bad Consequence: " + ((pendingBadConsequence == null) ? "" : pendingBadConsequence.toString()).replaceAll("(?m)^", "\t") + "\nVisible Treasures: " + visibleTreasures.toString().replaceAll("(?m)^", "\t") +"\nHidden Treasures: " + hiddenTreasures.toString().replaceAll("(?m)^", "\t");
     }
     
 }

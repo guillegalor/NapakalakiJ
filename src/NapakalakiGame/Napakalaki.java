@@ -7,6 +7,7 @@ package NapakalakiGame;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 
 
 /**
@@ -20,6 +21,7 @@ public class Napakalaki {
     private ArrayList<Player> players;
     private CardDealer dealer;
     private Monster currentMonster;
+    private Random rand = new Random();
     
     Napakalaki(){
         currentPlayer = null;
@@ -40,9 +42,9 @@ public class Napakalaki {
     private Player nextPlayer(){
         int indice;
         if(currentPlayer == null)
-            indice = (int) Math.floor(Math.random()*players.size());
+            indice = rand.nextInt(players.size());
         else{
-            if(currentPlayer == players.get(players.size()))
+            if(currentPlayer == players.get(players.size()-1))
                 indice = 0;
             else{
                 indice = players.indexOf(currentPlayer);
@@ -58,7 +60,14 @@ public class Napakalaki {
     }
     
     private void setEnemies(){
-        //TODO
+        for (Player p: players){
+            Player enemy;
+            do {
+                enemy = players.get(rand.nextInt(players.size()));
+            } while (p == enemy);
+            
+            p.setEnemy(enemy);
+        }
     }
     
     public static Napakalaki getInstance(){
