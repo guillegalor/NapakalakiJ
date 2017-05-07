@@ -22,7 +22,7 @@ public class Player {
     private BadConsequence pendingBadConsequence;
     private ArrayList<Treasure> hiddenTreasures;
     private ArrayList<Treasure> visibleTreasures;
-    private static int MAXLEVEL = 10;
+    static int MAXLEVEL = 10;
     
     public Player(String n){
         name = n;

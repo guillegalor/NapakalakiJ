@@ -12,6 +12,8 @@ import java.util.Iterator;
  * @author johanna y guille
  */
 public class BadConsequence {
+    static int MAXTREASURES = 10;
+    
     private String text;
     private int levels;
     private int nVisibleTreasures;
@@ -23,6 +25,32 @@ public class BadConsequence {
     
     public boolean isEmpty(){
         return nVisibleTreasures == 0 && nHiddenTreasures == 0 && specificHiddenTreasures.isEmpty() && specificVisibleTreasures.isEmpty();
+    }
+    
+     public BadConsequence(String t, int l, int nVisible, int nHidden){
+        text = t;
+        levels = l;
+        nVisibleTreasures = nVisible;
+        nHiddenTreasures = nHidden;
+        death = false;
+    }
+    
+    public BadConsequence(String t, int l, ArrayList<TreasureKind> v, ArrayList<TreasureKind> h){
+        text = t;
+        levels = l;
+        specificHiddenTreasures = h;
+        specificVisibleTreasures = v;
+        
+    }
+    
+    public BadConsequence(String t, boolean d){
+        text = t;
+        death = d;
+        if (d) {
+            levels = Player.MAXLEVEL;
+            nVisibleTreasures = MAXTREASURES;
+            nHiddenTreasures = MAXTREASURES;
+        }  
     }
     
     public int getLevels(){
@@ -49,8 +77,8 @@ public class BadConsequence {
         if(!isEmpty()){
             if(!specificVisibleTreasures.isEmpty()){
                 if(specificVisibleTreasures.contains(t.getType()))
-                    specificVisibleTreasures.remove(t);
-            }else if(nVisibleTreasures > 1)
+                    specificVisibleTreasures.remove(t.getType());
+            }else if(nVisibleTreasures >= 1)
                       nVisibleTreasures -= 1;      
         }
     }
@@ -59,37 +87,13 @@ public class BadConsequence {
         if(!isEmpty()){
             if(!specificHiddenTreasures.isEmpty()){
                 if(specificHiddenTreasures.contains(t.getType()))
-                    specificHiddenTreasures.remove(t);
-            }else if(nHiddenTreasures > 1)
+                    specificHiddenTreasures.remove(t.getType());
+            }else if(nHiddenTreasures >= 1)
                        nHiddenTreasures -= 1;
         }
     }
     
-    public BadConsequence(String t, int l, int nVisible, int nHidden){
-        text = t;
-        levels = l;
-        nVisibleTreasures = nVisible;
-        nHiddenTreasures = nHidden;
-        death = false;
-    }
-    
-    public BadConsequence(String t, int l, ArrayList<TreasureKind> v, ArrayList<TreasureKind> h){
-        text = t;
-        levels = l;
-        specificHiddenTreasures = h;
-        specificVisibleTreasures = v;
-        
-    }
-    
-    public BadConsequence(String t, boolean d){
-        text = t;
-        death = d;
-        levels = 0;
-        nVisibleTreasures = 0;
-        nHiddenTreasures = 0;
-    }
-    
-    public BadConsequence adjustToFitTreasureList(ArrayList<Treasure> v, ArrayList<Treasure> h) throws CloneNotSupportedException{
+    public BadConsequence adjustToFitTreasureList(ArrayList<Treasure> v, ArrayList<Treasure> h) {
         if(!isEmpty()){
             int nVisible = nVisibleTreasures;
             int nHidden = nHiddenTreasures;
@@ -102,35 +106,30 @@ public class BadConsequence {
             ArrayList<TreasureKind> visibleTypes = new ArrayList();
             ArrayList<TreasureKind> hiddenTypes = new ArrayList();
             
-            Iterator<Treasure> itr = v.iterator();
-            while(itr.hasNext())
-               visibleTypes.add(itr.next().getType());
+            for (Treasure t: v){
+                visibleTypes.add(t.getType());
+            }
             
-            itr = h.iterator();
-            
-            while(itr.hasNext())
-                hiddenTypes.add(itr.next().getType());
+            for (Treasure t: h){
+                hiddenTypes.add(t.getType());
+            }
             
             ArrayList<TreasureKind> sVisibleTreasures = new ArrayList();
             ArrayList<TreasureKind> sHiddenTreasures = new ArrayList();
             ArrayList<TreasureKind> cpySpecificVisibleTreasures = (ArrayList<TreasureKind>) specificVisibleTreasures.clone();
             ArrayList<TreasureKind> cpySpecificHiddenTreasures = (ArrayList<TreasureKind>) specificHiddenTreasures.clone();
-            
-            Iterator<TreasureKind> it = visibleTypes.iterator();
-            
-            while(it.hasNext()){
-                if(cpySpecificVisibleTreasures.contains(it.next())){
-                    sVisibleTreasures.add(it.next());
-                    cpySpecificVisibleTreasures.remove(it.next());
+   
+            for (TreasureKind tk: visibleTypes){
+                if(cpySpecificVisibleTreasures.contains(tk)){
+                    sVisibleTreasures.add(tk);
+                    cpySpecificVisibleTreasures.remove(tk);
                 }
             }
             
-            it = hiddenTypes.iterator();
-            
-            while(it.hasNext()){
-                if(cpySpecificHiddenTreasures.contains(it.next())){
-                    sHiddenTreasures.add(it.next());
-                    cpySpecificHiddenTreasures.remove(it.next());
+            for (TreasureKind tk: hiddenTypes){
+                if(cpySpecificHiddenTreasures.contains(tk)){
+                    sHiddenTreasures.add(tk);
+                    cpySpecificHiddenTreasures.remove(tk);
                 }
             }
             
@@ -141,7 +140,7 @@ public class BadConsequence {
             
             
         }else
-            return (BadConsequence) this.clone();
+            return new BadConsequence(text,levels, 0, 0);
         
         
     }
@@ -155,16 +154,16 @@ public class BadConsequence {
            return "\n¡Death!\n" + text;
         }else if(levels == 0){
             if((specificHiddenTreasures.isEmpty()) && (specificVisibleTreasures.isEmpty()))
-                return "\nLose: Vissible treasures = " + Integer.toString(nVisibleTreasures) + "Hidden treasures = " + Integer.toString(nHiddenTreasures) + "\n" + text;
+                return "\nLose: \nVisible treasures = " + Integer.toString(nVisibleTreasures) + "\nHidden treasures = " + Integer.toString(nHiddenTreasures) + "\n" + text;
             else
-                return "\nLose: Vissible treasures = " + specificVisibleTreasures.toString() + "Hidden treasures = " + specificHiddenTreasures.toString() + "\n" + text;
+                return "\nLose: \nVisible treasures = " + specificVisibleTreasures.toString() + "\nHidden treasures = " + specificHiddenTreasures.toString() + "\n" + text;
         }else if((nVisibleTreasures == 0) && (nHiddenTreasures == 0))
-                return "\nLose " + Integer.toString(levels) + "levels\n" + text;
+                return "\nLose " + Integer.toString(levels) + " levels\n" + text;
         else{
             if((specificHiddenTreasures.isEmpty()) && (specificVisibleTreasures.isEmpty()))
-                return "\nLose: Vissible treasures = " + Integer.toString(nVisibleTreasures) + "Hidden treasures = " + Integer.toString(nHiddenTreasures) +  "levels = " + Integer.toString(levels) + "\n" + text;
+                return "\nLose: \nVisible treasures = " + Integer.toString(nVisibleTreasures) + "\nHidden treasures = " + Integer.toString(nHiddenTreasures) +  "\nLevels = " + Integer.toString(levels) + "\n" + text;
             else
-                return "\nLose: Vissible treasures = " + specificVisibleTreasures.toString() + "Hidden treasures = " + specificHiddenTreasures.toString() + "levels = " + Integer.toString(levels) + "\n" + text;
+                return "\nLose: \nVisible treasures = " + specificVisibleTreasures.toString() + "\nHidden treasures = " + specificHiddenTreasures.toString() + "\nLevels = " + Integer.toString(levels) + "\n" + text;
         }
     }
 }
