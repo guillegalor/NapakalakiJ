@@ -12,15 +12,24 @@ package NapakalakiGame;
 public class Monster {
     private String name;
     private int combatLevel;
-    
     private Prize prize;
-    private BadConsequence badconsequence;
+    private BadConsequence badConsequence;
+    private int levelChangeAgainstCultistPlayer;
     
     public Monster(String n, int l, BadConsequence b, Prize p){
         name = n;
         combatLevel = l;
-        badconsequence = b;
+        badConsequence = b;
         prize = p;
+        levelChangeAgainstCultistPlayer = 0;
+    }
+    
+    public Monster(String n, int l, BadConsequence b, Prize p, int lC){
+        name = n;
+        combatLevel = l;
+        badConsequence = b;
+        prize = p;
+        levelChangeAgainstCultistPlayer = lC;
     }
     
     public String getName(){
@@ -31,8 +40,12 @@ public class Monster {
         return combatLevel;
     }
     
+    public int getCombatLevelAgainstCultistPlayer(){
+        return (getCombatLevel() + levelChangeAgainstCultistPlayer);
+    }
+    
     public BadConsequence getBadConsequence(){
-        return badconsequence;
+        return badConsequence;
     }
     
     public int getLevelsGained(){
@@ -47,8 +60,9 @@ public class Monster {
         return prize;
     }
         
+    @Override
     public String toString(){
-        return "\nName: " + name + "\nLevel: " + Integer.toString(combatLevel) + "\nPrize: " + prize.toString().replaceAll("(?m)^", "\t") + "\nBadConsequence: " + badconsequence.toString().replaceAll("(?m)^", "\t");
+        return "\nName: " + name + "\nLevel: " + Integer.toString(combatLevel) + "\nPrize: " + prize.toString().replaceAll("(?m)^", "\t") + "\nBadConsequence: " + badConsequence.toString().replaceAll("(?m)^", "\t");
     }
 }
 

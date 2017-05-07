@@ -7,6 +7,7 @@ package NapakalakiGame;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 
 
 /**
@@ -35,20 +36,23 @@ public class Player {
         visibleTreasures = new ArrayList();
     }
     
+    public Player(Player p){
+        name = p.name;
+        level = p.level;
+        death = p.death;
+        canISteal = p.canISteal;
+        enemy = p.enemy;
+        pendingBadConsequence = p.pendingBadConsequence;
+        hiddenTreasures = p.hiddenTreasures;
+        visibleTreasures = p.visibleTreasures;
+    }
+    
     public String getName(){
         return name;
     }
     
     private void bringToLife(){
         death = false;
-    }
-    
-    private int getCombatLevel(){
-        int bonus = 0;
-        for(Treasure i:visibleTreasures)
-            bonus += i.getBonus();
-        
-        return level + bonus;
     }
     
     private void incrementLevels(int i){
@@ -132,6 +136,10 @@ public class Player {
         return death;
     }
     
+    protected Player getEnemy(){
+        return enemy;
+    }
+    
     public ArrayList<Treasure> getHiddenTreasures(){
         return hiddenTreasures;
     }
@@ -142,7 +150,7 @@ public class Player {
     
     public CombatResult combat(Monster m){
        int myLevel = getCombatLevel();
-       int monsterLevel = m.getCombatLevel();
+       int monsterLevel = getOponentLevel(m);
        
        if(!canISteal()){
            Dice dice = Dice.getInstance();
@@ -163,8 +171,11 @@ public class Player {
            else
                combatResult = CombatResult.WIN;
        }else{
-           combatResult = CombatResult.LOSE;
            applyBadConsequence(m);
+           if (shouldConvert()) 
+               combatResult = CombatResult.LOSEANDCONVERT;
+           else
+               combatResult = CombatResult.LOSE;
        }
        
        return combatResult;
@@ -246,8 +257,9 @@ public class Player {
         enemy = e;
     }
     
-    private Treasure giveMeATreasure(){
-        return hiddenTreasures.remove((int) Math.floor(Math.random()*hiddenTreasures.size()));
+    protected Treasure giveMeATreasure(){
+        Random rand = new Random();
+        return hiddenTreasures.remove(rand.nextInt(hiddenTreasures.size()));
     }
     
     public boolean canISteal(){
@@ -282,6 +294,22 @@ public class Player {
     @Override
     public String toString(){
         return "\nName: " + name + "\nLevel: " + Integer.toString(level) + "\nDeath: " + (death ? "Si" : "No") + "\nCan I steal?" + (canISteal ? "Yes" : "No") + "\nEnemy: " + ((enemy == null) ? "" : enemy.name) + "\nPending Bad Consequence: " + ((pendingBadConsequence == null) ? "" : pendingBadConsequence.toString()).replaceAll("(?m)^", "\t") + "\nVisible Treasures: " + visibleTreasures.toString().replaceAll("(?m)^", "\t") +"\nHidden Treasures: " + hiddenTreasures.toString().replaceAll("(?m)^", "\t");
+    }
+    
+    protected boolean shouldConvert(){
+       return Dice.getInstance().nextNumber() == 6;
+    }
+    
+    protected int getOponentLevel(Monster m){
+        return m.getCombatLevel();
+    }
+    
+    protected int getCombatLevel(){
+        int bonus = 0;
+        for(Treasure i:visibleTreasures)
+            bonus += i.getBonus();
+        
+        return level + bonus;
     }
     
 }

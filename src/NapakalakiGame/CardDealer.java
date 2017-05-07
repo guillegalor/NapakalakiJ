@@ -24,6 +24,7 @@ public class CardDealer {
         unusedTreasures = new ArrayList();
         usedMonsters = new ArrayList();
         unusedMonsters = new ArrayList();
+        unusedCultist = new ArrayList();
     }
     
     public static CardDealer getInstance() {
@@ -32,11 +33,12 @@ public class CardDealer {
         
         return instance;
     }
-    
-    private ArrayList<Treasure> usedTreasures;
+        
     private ArrayList<Treasure> unusedTreasures;
-    private ArrayList<Monster> usedMonsters;
+    private ArrayList<Treasure> usedTreasures;
     private ArrayList<Monster> unusedMonsters;
+    private ArrayList<Monster> usedMonsters;
+    private ArrayList<Cultist> unusedCultist;
     
     private void initTreasureCardDeck(){
         //Treasure[0]
@@ -246,37 +248,57 @@ public class CardDealer {
         //unusedMonsters[19] -2 contra sectarios
         bc = new BadConsequence("Pierdes una mano visible", 0, new ArrayList(Arrays.asList(TreasureKind.ONEHAND)), new ArrayList());
         prize = new Prize(3, 1);
-        unusedMonsters.add(new Monster("El mal indecible impronunciable", 10, bc, prize));
+        unusedMonsters.add(new Monster("El mal indecible impronunciable", 10, bc, prize, -2));
         
         //unusedMonsters[20] +2 contra sectarios
         bc = new BadConsequence("Pierdes tus tesoros visibles. Jajaja.", 0, Integer.MAX_VALUE, 0);
         prize = new Prize(2, 1);
-        unusedMonsters.add(new Monster("Testigos oculares", 6, bc, prize));
+        unusedMonsters.add(new Monster("Testigos oculares", 6, bc, prize, 2));
         
         //unusedMonsters[21] +4 contra sectarios
         bc = new BadConsequence("Hoy no es tu dia de suerte. Mueres", true);
         prize = new Prize(5, 2);
-        unusedMonsters.add(new Monster("El gran cthulhu", 20, bc, prize));
+        unusedMonsters.add(new Monster("El gran cthulhu", 20, bc, prize, 4));
         
         //unusedMonsters[22] -2 contra sectarios
         bc = new BadConsequence("Tu gobierno te recorta 2 niveles", 2, 0, 0);
         prize = new Prize(2, 1);
-        unusedMonsters.add(new Monster("Serpiente Politico", 8, bc, prize));
+        unusedMonsters.add(new Monster("Serpiente Politico", 8, bc, prize, -2));
         
         //unusedMonsters[23] +5 contra sectarios
         bc = new BadConsequence("Pierdes tu casco y tu armadura visible. Pierdes tus manos ocultas", 0, new ArrayList(Arrays.asList(TreasureKind.HELMET, TreasureKind.ARMOR)), new ArrayList(Arrays.asList(TreasureKind.ONEHAND, TreasureKind.ONEHAND, TreasureKind.ONEHAND, TreasureKind.ONEHAND,TreasureKind.BOTHHANDS, TreasureKind.BOTHHANDS, TreasureKind.BOTHHANDS, TreasureKind.BOTHHANDS)));
         prize = new Prize(1, 1);
-        unusedMonsters.add(new Monster("Felpuggoth", 2, bc, prize));
+        unusedMonsters.add(new Monster("Felpuggoth", 2, bc, prize, 5));
         
         //unusedMonsters[24] -4 contra sectarios
         bc = new BadConsequence("Pierdes 2 niveles", 2, 0, 0);
         prize = new Prize(4, 2);
-        unusedMonsters.add(new Monster("Shoggoth", 16, bc, prize));
+        unusedMonsters.add(new Monster("Shoggoth", 16, bc, prize, -4));
         
         //unusedMonsters[25] +3 contra sectarios
         bc = new BadConsequence("Pintalabios negro. Pierdes 2 niveles", 2, 0, 0);
         prize = new Prize(1, 1);
-        unusedMonsters.add(new Monster("Lolitagooth", 2, bc, prize));
+        unusedMonsters.add(new Monster("Lolitagooth", 2, bc, prize, 3));
+    }
+    
+    private void initCultistCardDeck(){
+        //unusedMonster[0] +1 por cada sectario en el juego
+        unusedCultist.add(new Cultist("Sectario", 1));
+        
+        //unusedMonster[0] +2 por cada sectario en el juego
+        unusedCultist.add(new Cultist("Sectario", 2));
+        
+        //unusedMonster[0] +1 por cada sectario en el juego
+        unusedCultist.add(new Cultist("Sectario", 1));
+        
+        //unusedMonster[0] +2 por cada sectario en el juego
+        unusedCultist.add(new Cultist("Sectario", 2));
+        
+        //unusedMonster[0] +1 por cada sectario en el juego
+        unusedCultist.add(new Cultist("Sectario", 1));
+        
+        //unusedMonster[0] +1 por cada sectario en el juego
+        unusedCultist.add(new Cultist("Sectario", 1));
     }
     
     private void shuffleTreasures(){
@@ -285,6 +307,10 @@ public class CardDealer {
     
     private void shuffleMonsters(){
         Collections.shuffle(unusedMonsters);
+    }
+    
+    private void shuffleCultist(){
+        Collections.shuffle(unusedCultist);
     }
     
     public Treasure nextTreasure(){
@@ -316,6 +342,12 @@ public class CardDealer {
         return unusedMonsters.remove(unusedMonsters.size()-1);
     }
     
+    //TODO Pensar que hacer en caso de que el mazo este vacío
+    public Cultist nextCultist(){
+        return unusedCultist.remove(unusedCultist.size()-1);
+    }
+        
+    
     public void giveTreasureBack(Treasure t){
         usedTreasures.add(t);
     }
@@ -327,7 +359,9 @@ public class CardDealer {
     public void initCards(){
         initTreasureCardDeck();
         initMonsterCardDeck();
+        initCultistCardDeck();
         shuffleTreasures();
         shuffleMonsters();
+        shuffleCultist();
     }
 }
