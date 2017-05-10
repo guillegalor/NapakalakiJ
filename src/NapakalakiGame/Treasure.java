@@ -9,7 +9,7 @@ package NapakalakiGame;
  *
  * @author johanna
  */
-class Treasure {
+public class Treasure {
     private String name;
     private int bonus;
     private TreasureKind type;

@@ -8,6 +8,8 @@ package NapakalakiGame;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
+import GUI.Dice;
+import java.awt.Frame;
 
 
 /**
@@ -266,7 +268,7 @@ public class Player {
         return canISteal;
     }
     
-    private boolean canYouGiveMeATreasure(){
+    protected boolean canYouGiveMeATreasure(){
         //Revisar cuando implementemos los sectarios
         return !hiddenTreasures.isEmpty();
     }
@@ -294,6 +296,10 @@ public class Player {
     @Override
     public String toString(){
         return "\nName: " + name + "\nLevel: " + Integer.toString(level) + "\nDeath: " + (death ? "Si" : "No") + "\nCan I steal?" + (canISteal ? "Yes" : "No") + "\nEnemy: " + ((enemy == null) ? "" : enemy.name) + "\nPending Bad Consequence: " + ((pendingBadConsequence == null) ? "" : pendingBadConsequence.toString()).replaceAll("(?m)^", "\t") + "\nVisible Treasures: " + visibleTreasures.toString().replaceAll("(?m)^", "\t") +"\nHidden Treasures: " + hiddenTreasures.toString().replaceAll("(?m)^", "\t");
+    }
+    
+    public String getEnemyS(){
+        return enemy.name;
     }
     
     protected boolean shouldConvert(){

@@ -47,7 +47,10 @@ public class CultistPlayer extends Player  {
         return getVisibleTreasures().remove(rand.nextInt(getVisibleTreasures().size()));
     }
     
-    
+    @Override
+    protected boolean canYouGiveMeATreasure(){
+        return !getVisibleTreasures().isEmpty();
+    }
     
     
 }
