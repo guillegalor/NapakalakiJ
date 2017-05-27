@@ -6,6 +6,7 @@
 package GUI;
 
 import NapakalakiGame.Treasure;
+import java.awt.Color;
 
 /**
  *
@@ -18,6 +19,9 @@ public class TreasureView extends javax.swing.JPanel {
      */
     public TreasureView() {
         initComponents();
+        selected = false;
+        setBackground(Color.CYAN);
+        setOpaque(false);
     }
     
     /**
@@ -25,6 +29,7 @@ public class TreasureView extends javax.swing.JPanel {
      */
     
     Treasure treasureModel;
+    boolean selected;
     
     /**
      * Initialize treasure model
@@ -32,6 +37,25 @@ public class TreasureView extends javax.swing.JPanel {
      */
     public void setTreasure(Treasure nModel){
         treasureModel = nModel;
+        jL_name.setText("<html><body>" + treasureModel.getName() + "<html><body>");
+        jL_bonus.setText(Integer.toString(treasureModel.getBonus()));
+        jL_kind.setText(treasureModel.getType().toString());
+        repaint();
+        revalidate(); //TODO: CHECK: Not sure if this is necessary
+    }
+    
+    /**
+     * @return if the treasure is selected or not
+     */
+    public boolean isSelected(){
+        return selected;
+    }
+    
+    /**
+     * @return tesoro modelo de la vista 
+     */
+    public Treasure getTreasure(){
+        return treasureModel;
     }
 
     /**
@@ -45,44 +69,60 @@ public class TreasureView extends javax.swing.JPanel {
 
         jL_name = new javax.swing.JLabel();
         jL_bonus = new javax.swing.JLabel();
-        jL_tKind = new javax.swing.JLabel();
+        jL_kind = new javax.swing.JLabel();
 
-        jL_name.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        jL_name.setText(treasureModel.getName());
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
-        jL_bonus.setText("Bonus: " + Integer.toString(treasureModel.getBonus()));
+        jL_name.setText("jLabel1");
 
-        jL_tKind.setText("Treasure kind: " + treasureModel.getType().toString());
+        jL_bonus.setText("jLabel1");
+
+        jL_kind.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jL_name)
-                    .addComponent(jL_bonus, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jL_tKind, javax.swing.GroupLayout.Alignment.LEADING))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jL_kind, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jL_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jL_bonus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(8, 8, 8))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jL_name)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jL_bonus)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jL_tKind)
-                .addContainerGap())
+                .addComponent(jL_kind)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        if (selected) 
+            setOpaque(false);
+        else
+            setOpaque(true);
+        
+        selected = !selected;
+        repaint();
+    }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jL_bonus;
+    private javax.swing.JLabel jL_kind;
     private javax.swing.JLabel jL_name;
-    private javax.swing.JLabel jL_tKind;
     // End of variables declaration//GEN-END:variables
 }

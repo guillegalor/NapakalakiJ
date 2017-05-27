@@ -17,38 +17,66 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jL_lvl" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="116" max="32767" attributes="0"/>
-                              <Component id="jL_canSteal" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                  <Component id="jP_visibleTreasures" max="32767" attributes="0"/>
+                  <Component id="jP_hiddenTreasures" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="pendingBadConsequenceView1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_pendingBad" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_hiddenTreasures" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_name" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jL_visibleT" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jL_enemy" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Component id="jL_visibleTreasures" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jL_cteEnemy" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jL_level" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jL_enemy" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Component id="jL_cteLvl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jL_cteCultist" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace pref="198" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jL_cteSteal" max="32767" attributes="0"/>
+                                          <Component id="jL_cteCombatLvl" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jL_canSteal" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jL_combatLevel" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jL_hiddenT" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jP_hiddenTreasures" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jL_name" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jP_visibleTreasures" alignment="0" pref="121" max="32767" attributes="0"/>
+                      <EmptySpace pref="49" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jB_discard" max="32767" attributes="0"/>
+                          <Component id="jB_makeVisible" min="-2" pref="149" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jB_stealTreasure" max="32767" attributes="0"/>
+                          <Component id="jB_discardAll" min="-2" pref="133" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -56,23 +84,59 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jL_name" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jL_lvl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jL_canSteal" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jB_discardAll" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jB_discard" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jB_stealTreasure" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jB_makeVisible" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jL_name" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jL_level" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jL_cteLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jL_cteCombatLvl" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jL_combatLevel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jL_enemy" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_cteEnemy" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_cteSteal" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_canSteal" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jL_enemy" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jL_cteCultist" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="58" max="32767" attributes="0"/>
+              <Component id="jL_visibleTreasures" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jL_visibleT" min="-2" max="-2" attributes="0"/>
+              <Component id="jP_visibleTreasures" min="-2" pref="128" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jP_visibleTreasures" min="-2" max="-2" attributes="0"/>
+              <Component id="jL_hiddenTreasures" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jL_hiddenT" min="-2" max="-2" attributes="0"/>
+              <Component id="jP_hiddenTreasures" min="-2" pref="128" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jP_hiddenTreasures" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="192" max="32767" attributes="0"/>
+              <Component id="jL_pendingBad" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="pendingBadConsequenceView1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -83,37 +147,27 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Cantarell" size="15" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="playerModel.getName()" type="code"/>
-        </Property>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jL_lvl">
+    <Component class="javax.swing.JLabel" name="jL_level">
       <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="&quot;Lvl: &quot; + Integer.toString(playerModel.getLevels())" type="code"/>
-        </Property>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jL_canSteal">
       <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="&quot;Can steal? &quot; + (playerModel.canISteal() ? &quot;Yes&quot; : &quot;No&quot;)" type="code"/>
-        </Property>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jL_enemy">
       <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="&quot;Enemy: &quot; + playerModel.getEnemyS()" type="code"/>
-        </Property>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jL_visibleT">
+    <Component class="javax.swing.JLabel" name="jL_visibleTreasures">
       <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="&quot;VisibleTreasures:&quot;" type="code"/>
-        </Property>
+        <Property name="text" type="java.lang.String" value="Visible Treasures"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="jP_visibleTreasures">
@@ -127,11 +181,9 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
     </Container>
-    <Component class="javax.swing.JLabel" name="jL_hiddenT">
+    <Component class="javax.swing.JLabel" name="jL_hiddenTreasures">
       <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="&quot;Hidden treasures:&quot;" type="code"/>
-        </Property>
+        <Property name="text" type="java.lang.String" value="Hidden Treasures"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="jP_hiddenTreasures">
@@ -145,5 +197,84 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
     </Container>
+    <Component class="javax.swing.JLabel" name="jL_pendingBad">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pending Bad Consequence"/>
+      </Properties>
+    </Component>
+    <Component class="GUI.PendingBadConsequenceView" name="pendingBadConsequenceView1">
+    </Component>
+    <Component class="javax.swing.JButton" name="jB_stealTreasure">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Steal treasure"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_stealTreasureActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jB_discardAll">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Discard all"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_discardAllActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jB_makeVisible">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Make visible"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_makeVisibleActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jB_discard">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Discard treasure"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jB_discardActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jL_cteLvl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Lvl:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jL_cteEnemy">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Enemy:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jL_cteSteal">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Can i steal:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jL_cteCombatLvl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="CombatLvl:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jL_combatLevel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel4"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jL_cteCultist">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cultist:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel2"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>

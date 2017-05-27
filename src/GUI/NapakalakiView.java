@@ -6,6 +6,8 @@
 package GUI;
 
 import NapakalakiGame.Napakalaki;
+import NapakalakiGame.CombatResult;
+import java.awt.Color;
 
 /**
  *
@@ -18,6 +20,11 @@ public class NapakalakiView extends javax.swing.JFrame {
      */
     public NapakalakiView() {
         initComponents();
+        jP_arena.setBackground(new Color(214,167,85));
+        monsterView2.setVisible(false);
+        jB_combat.setVisible(false);
+        jB_nextTurn.setVisible(false);
+        jL_msgs.setVisible(false);
     }
     
     /**
@@ -31,6 +38,11 @@ public class NapakalakiView extends javax.swing.JFrame {
      */
     public void setNapakalaki(Napakalaki nModel){
         napakalakiModel = nModel;
+        playerView2.setPlayer(napakalakiModel.getCurrentPlayer());
+        playerView2.setNapakalaki(napakalakiModel);
+        monsterView2.setMonster(napakalakiModel.getCurrentMonster());
+        
+        repaint();
     }
 
     /**
@@ -42,29 +54,171 @@ public class NapakalakiView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        playerView2 = new GUI.PlayerView();
+        jP_arena = new javax.swing.JPanel();
+        monsterView2 = new GUI.MonsterView();
+        jB_meetMonster = new javax.swing.JButton();
+        jB_combat = new javax.swing.JButton();
+        jB_nextTurn = new javax.swing.JButton();
+        jL_msgs = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        playerView2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Current Player", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+
+        jP_arena.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "ARENA", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jP_arena.setForeground(javax.swing.UIManager.getDefaults().getColor("Button.darcula.selection.color1"));
+
+        monsterView2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Current Monster", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+
+        jB_meetMonster.setText("Meet the monster");
+        jB_meetMonster.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_meetMonsterActionPerformed(evt);
+            }
+        });
+
+        jB_combat.setText("Combat");
+        jB_combat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_combatActionPerformed(evt);
+            }
+        });
+
+        jB_nextTurn.setText("Next turn");
+        jB_nextTurn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_nextTurnActionPerformed(evt);
+            }
+        });
+
+        jL_msgs.setFont(new java.awt.Font("Dialog", 2, 24)); // NOI18N
+        jL_msgs.setText("jLabel1");
+
+        javax.swing.GroupLayout jP_arenaLayout = new javax.swing.GroupLayout(jP_arena);
+        jP_arena.setLayout(jP_arenaLayout);
+        jP_arenaLayout.setHorizontalGroup(
+            jP_arenaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_arenaLayout.createSequentialGroup()
+                .addComponent(jB_meetMonster, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addComponent(jB_combat, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addComponent(jB_nextTurn, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jP_arenaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(monsterView2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jP_arenaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jL_msgs)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jP_arenaLayout.setVerticalGroup(
+            jP_arenaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jP_arenaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jP_arenaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jB_meetMonster)
+                    .addComponent(jB_combat)
+                    .addComponent(jB_nextTurn))
+                .addGap(52, 52, 52)
+                .addComponent(monsterView2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addComponent(jL_msgs)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(playerView2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jP_arena, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(playerView2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jP_arena, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jB_meetMonsterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_meetMonsterActionPerformed
+        monsterView2.setVisible(true);
+        playerView2.showMakeVisible(false);
+        jB_combat.setVisible(true);
+        jB_meetMonster.setVisible(false);
+              
+        repaint();
+    }//GEN-LAST:event_jB_meetMonsterActionPerformed
+
+    private void jB_combatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_combatActionPerformed
+        CombatResult combatResult = napakalakiModel.developCombat();
+        
+        switch(combatResult){
+            case WINGAME:
+                jL_msgs.setText("YOU WON THE GAME!!!!!!");
+                break;
+            case WIN:
+                jL_msgs.setText("You won the combat");
+                break;
+            case LOSE:
+                jL_msgs.setText("You lose the combat");
+                break;
+            case LOSEANDCONVERT:
+                jL_msgs.setText("You lose the combat\n and you have become a cultist");
+                break;
+        }
+        
+        playerView2.setPlayer(napakalakiModel.getCurrentPlayer());
+        jL_msgs.setVisible(true);
+        jB_nextTurn.setVisible(true);
+        jB_combat.setVisible(false);
+        playerView2.showMakeVisible(true);
+        
+        repaint();
+    }//GEN-LAST:event_jB_combatActionPerformed
+
+    private void jB_nextTurnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_nextTurnActionPerformed
+        if (napakalakiModel.nextTurn()) {
+            playerView2.setPlayer(napakalakiModel.getCurrentPlayer());
+            monsterView2.setMonster(napakalakiModel.getCurrentMonster());
+            monsterView2.setVisible(false);
+            jL_msgs.setVisible(false);
+            jB_meetMonster.setVisible(true);
+            jB_nextTurn.setVisible(false);
+        }
+        else{
+            jL_msgs.setText("<html><body>You can't pass your turn\nYou may have more than 4 hidden treasures\nor you have a pending bad consequence<body></html>");
+        }
+        
+        repaint();
+    }//GEN-LAST:event_jB_nextTurnActionPerformed
+
     /**
-     * @param args the command line arguments
+     * Hace visible el juego
      */
     public void showView() {
         this.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jB_combat;
+    private javax.swing.JButton jB_meetMonster;
+    private javax.swing.JButton jB_nextTurn;
+    private javax.swing.JLabel jL_msgs;
+    private javax.swing.JPanel jP_arena;
+    private GUI.MonsterView monsterView2;
+    private GUI.PlayerView playerView2;
     // End of variables declaration//GEN-END:variables
 }

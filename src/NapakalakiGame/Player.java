@@ -53,6 +53,10 @@ public class Player {
         return name;
     }
     
+    public BadConsequence getPendingBadConsequence(){
+        return pendingBadConsequence;
+    }
+    
     private void bringToLife(){
         death = false;
     }
@@ -210,7 +214,7 @@ public class Player {
     }
     
     public boolean validState(){
-        return (pendingBadConsequence.isEmpty() || pendingBadConsequence == null) && hiddenTreasures.size() <= 4;
+        return (pendingBadConsequence == null || pendingBadConsequence.isEmpty()) && hiddenTreasures.size() <= 4;
     }
     
     public void initTreasures(){
@@ -281,16 +285,11 @@ public class Player {
         ArrayList<Treasure> copiaVisible = (ArrayList<Treasure>) visibleTreasures.clone();
         ArrayList<Treasure> copiaHidden = (ArrayList<Treasure>) hiddenTreasures.clone();
         
-        Iterator<Treasure> itr = copiaVisible.iterator();
+        for(Treasure t: copiaVisible)
+            discardVisibleTreasure(t);
         
-        while(itr.hasNext())
-            discardVisibleTreasure(itr.next());
-        
-        itr = copiaHidden.iterator();
-        
-        while(itr.hasNext())
-            discardHiddenTreasure(itr.next());       
-        
+        for(Treasure t: copiaHidden)
+            discardHiddenTreasure(t);          
     }
     
     @Override

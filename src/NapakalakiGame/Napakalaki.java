@@ -32,9 +32,8 @@ public class Napakalaki {
     }
     
     private void initPlayers(ArrayList<String> names){
-        Iterator<String> itr = names.iterator();
-        while(itr.hasNext()){
-            Player player = new Player(itr.next());
+        for(String s: names){
+            Player player = new Player(s);
             players.add(player);
         }
     }
@@ -115,6 +114,10 @@ public class Napakalaki {
             currentPlayer.discardHiddenTreasure(treasure);
             dealer.giveTreasureBack(treasure);
         }
+    }
+    
+    public void discardAll(){
+        currentPlayer.discardAllTreasures();
     }
     
     public void makeTreasuresVisible(ArrayList<Treasure> treasures){

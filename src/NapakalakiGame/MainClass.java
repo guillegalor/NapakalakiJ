@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * @author guille
  */
 public class MainClass {
-    public static void main (String[] args){
+    public static void main (String[] args){    
         Napakalaki game = Napakalaki.getInstance();
         NapakalakiView napakalakiView = new NapakalakiView();
         PlayerNamesCapture namesCapture = new PlayerNamesCapture(napakalakiView, true);

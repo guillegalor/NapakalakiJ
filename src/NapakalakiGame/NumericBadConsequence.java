@@ -26,7 +26,7 @@ public class NumericBadConsequence extends BadConsequence{
        return nVisibleTreasures == 0 && nHiddenTreasures == 0; 
     }
     
-    public int getNVisiblesTreasures(){
+    public int getNVisibleTreasures(){
         return nVisibleTreasures;
     }
     

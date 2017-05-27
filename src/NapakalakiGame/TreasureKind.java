@@ -10,5 +10,17 @@ package NapakalakiGame;
  * @author johanna
  */
 public enum TreasureKind {
-    ARMOR, ONEHAND, BOTHHANDS, HELMET, SHOE
+    ARMOR, ONEHAND, BOTHHANDS, HELMET, SHOE;
+    
+    // TODO Comprobar excepciones
+    @Override
+    public String toString(){
+        switch(this){
+            case ARMOR: return "armor";
+            case ONEHAND: return "one hand";
+            case BOTHHANDS: return "both hands";
+            case SHOE: return "shoes";
+            default: return "This is bad";
+        }
+    }
 }
