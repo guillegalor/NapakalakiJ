@@ -302,14 +302,14 @@ public class Player {
     }
     
     protected boolean shouldConvert(){
-       return Dice.getInstance().nextNumber() == 6;
+       return true;//Dice.getInstance().nextNumber() == 6;
     }
     
     protected int getOponentLevel(Monster m){
         return m.getCombatLevel();
     }
     
-    protected int getCombatLevel(){
+    public int getCombatLevel(){
         int bonus = 0;
         for(Treasure i:visibleTreasures)
             bonus += i.getBonus();

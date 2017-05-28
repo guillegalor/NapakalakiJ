@@ -20,12 +20,8 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jP_visibleTreasures" max="32767" attributes="0"/>
-                  <Component id="jP_hiddenTreasures" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="pendingBadConsequenceView1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jL_pendingBad" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jL_hiddenTreasures" min="-2" max="-2" attributes="0"/>
                           <Component id="jL_name" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -44,23 +40,18 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jL_cteCultist" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jL_cultist" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jL_cteSteal" max="32767" attributes="0"/>
+                                  <Component id="jL_cteCombatLvl" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jL_cteSteal" max="32767" attributes="0"/>
-                                          <Component id="jL_cteCombatLvl" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jL_canSteal" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jL_combatLevel" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jL_canSteal" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jL_combatLevel" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -74,6 +65,15 @@
                           <Component id="jB_stealTreasure" max="32767" attributes="0"/>
                           <Component id="jB_discardAll" min="-2" pref="133" max="-2" attributes="0"/>
                       </Group>
+                  </Group>
+                  <Component id="jP_hiddenTreasures" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="pendingBadConsequenceView1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_pendingBad" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jL_hiddenTreasures" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="337" pref="337" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -121,22 +121,21 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jL_cteCultist" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jL_cultist" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="58" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jL_visibleTreasures" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jP_visibleTreasures" min="-2" pref="128" max="-2" attributes="0"/>
+              <Component id="jP_visibleTreasures" min="-2" pref="120" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jL_hiddenTreasures" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jP_hiddenTreasures" min="-2" pref="128" max="-2" attributes="0"/>
+              <Component id="jP_hiddenTreasures" min="-2" pref="120" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jL_pendingBad" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="pendingBadConsequenceView1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -266,14 +265,9 @@
         <Property name="text" type="java.lang.String" value="Cultist:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="jL_cultist">
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel2"/>
       </Properties>
     </Component>
   </SubComponents>

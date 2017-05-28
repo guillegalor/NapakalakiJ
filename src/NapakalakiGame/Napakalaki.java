@@ -89,7 +89,7 @@ public class Napakalaki {
                     p.setEnemy(cp);
                 }
             }
-            players.add(players.indexOf(currentPlayer), cp);
+            players.set(players.indexOf(currentPlayer), cp);
             currentPlayer = cp;            
         }
         

@@ -20,6 +20,7 @@ public enum TreasureKind {
             case ONEHAND: return "one hand";
             case BOTHHANDS: return "both hands";
             case SHOE: return "shoes";
+            case HELMET: return "helmet";
             default: return "This is bad";
         }
     }

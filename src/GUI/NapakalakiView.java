@@ -124,7 +124,7 @@ public class NapakalakiView extends javax.swing.JFrame {
                     .addComponent(jB_nextTurn))
                 .addGap(52, 52, 52)
                 .addComponent(monsterView2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
+                .addGap(18, 18, 18)
                 .addComponent(jL_msgs)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
