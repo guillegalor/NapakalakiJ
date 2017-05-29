@@ -62,17 +62,11 @@ public class Player {
     }
     
     private void incrementLevels(int i){
-        if(level + i > 10)
-            level = 10;
-        else
-            level += i;
+        level = Integer.min(MAXLEVEL, level+i);
     }
     
     private void decrementLevels(int i){
-        if(level - i < 1)
-            level = 1;
-        else
-            level -= i;
+        level = Integer.max(1, level-i);
     }
     
     private void setPendingBadConsequence(BadConsequence b){
@@ -87,7 +81,7 @@ public class Player {
         CardDealer dealer = CardDealer.getInstance();
         Treasure treasure;
         
-        for(int i=0; i<nLevels; i++){
+        for(int i=0; i<nTreasures; i++){
             treasure = dealer.nextTreasure();
             hiddenTreasures.add(treasure);
         }
@@ -97,7 +91,7 @@ public class Player {
         BadConsequence badConsequence = m.getBadConsequence();
         int nLevels = badConsequence.getLevels();
         
-        level = Integer.max(1, level-nLevels);
+        decrementLevels(nLevels);
         BadConsequence pendingBad = badConsequence.adjustToFitTreasureList(visibleTreasures, hiddenTreasures);
         setPendingBadConsequence(pendingBad);
     }
