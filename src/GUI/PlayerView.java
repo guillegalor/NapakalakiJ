@@ -44,6 +44,8 @@ public class PlayerView extends javax.swing.JPanel {
         jL_canSteal.setText(playerModel.canISteal()? "Yes" : "No");
         jL_cultist.setText(playerModel instanceof CultistPlayer ? "Yes" : "No" );
         jL_combatLevel.setText(Integer.toString(playerModel.getCombatLevel()));
+        jL_numVisible.setText(Integer.toString(playerModel.getVisibleTreasures().size()));
+        jL_numHidden.setText(Integer.toString(playerModel.getHiddenTreasures().size()));
         fillTreasurePanel (jP_visibleTreasures, playerModel.getVisibleTreasures());
         fillTreasurePanel (jP_hiddenTreasures, playerModel.getHiddenTreasures());
         pendingBadConsequenceView1.setPendingBadConsequence(playerModel.getPendingBadConsequence());
@@ -131,6 +133,8 @@ public class PlayerView extends javax.swing.JPanel {
         jL_combatLevel = new javax.swing.JLabel();
         jL_cteCultist = new javax.swing.JLabel();
         jL_cultist = new javax.swing.JLabel();
+        jL_numVisible = new javax.swing.JLabel();
+        jL_numHidden = new javax.swing.JLabel();
 
         jL_name.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jL_name.setText("jLabel1");
@@ -193,6 +197,10 @@ public class PlayerView extends javax.swing.JPanel {
 
         jL_cultist.setText("jLabel1");
 
+        jL_numVisible.setText("jLabel1");
+
+        jL_numHidden.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -220,13 +228,16 @@ public class PlayerView extends javax.swing.JPanel {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jL_cultist)))
                                 .addGap(12, 12, 12)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jL_cteSteal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jL_cteCombatLvl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jL_canSteal)
-                                    .addComponent(jL_combatLevel))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jL_cteSteal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jL_cteCombatLvl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jL_canSteal)
+                                            .addComponent(jL_combatLevel)))
+                                    .addComponent(jL_numVisible))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jB_discard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -240,7 +251,10 @@ public class PlayerView extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pendingBadConsequenceView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jL_pendingBad)
-                            .addComponent(jL_hiddenTreasures))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jL_hiddenTreasures)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jL_numHidden)))
                         .addGap(337, 337, 337)))
                 .addContainerGap())
         );
@@ -278,11 +292,15 @@ public class PlayerView extends javax.swing.JPanel {
                     .addComponent(jL_cteCultist)
                     .addComponent(jL_cultist))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jL_visibleTreasures)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jL_visibleTreasures)
+                    .addComponent(jL_numVisible))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jP_visibleTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jL_hiddenTreasures)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jL_hiddenTreasures)
+                    .addComponent(jL_numHidden))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jP_hiddenTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -341,6 +359,8 @@ public class PlayerView extends javax.swing.JPanel {
     private javax.swing.JLabel jL_hiddenTreasures;
     private javax.swing.JLabel jL_level;
     private javax.swing.JLabel jL_name;
+    private javax.swing.JLabel jL_numHidden;
+    private javax.swing.JLabel jL_numVisible;
     private javax.swing.JLabel jL_pendingBad;
     private javax.swing.JLabel jL_visibleTreasures;
     private javax.swing.JPanel jP_hiddenTreasures;

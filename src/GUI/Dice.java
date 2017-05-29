@@ -53,12 +53,13 @@ public class Dice extends javax.swing.JDialog {
     };
   
   public int nextNumber () {
-    return nextNumber ("Puedes llamar al método",
-            "Pasándole 2 cadenas como parámetros");
+    return nextNumber ("Estas dos label",
+            "son completamente inútiles");
     
   }
   public int nextNumber (String message1, String message2) {
     jB_OK.setVisible(false);
+    jL_dice.setFocusable(true);
     jL_message1.setText(message1);
     jL_message2.setText(message2);
     pack();
@@ -120,7 +121,7 @@ public class Dice extends javax.swing.JDialog {
     });
 
     jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-    jLabel1.setText("Pincha sobre el dado para detenerlo");
+    jLabel1.setText("Pincha sobre el dado o pulsa enter para detenerlo");
 
     jL_message2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
     jL_message2.setText("jLabel1");
