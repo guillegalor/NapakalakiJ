@@ -147,7 +147,7 @@ public class Napakalaki {
         if(stateOK){
             currentMonster = dealer.nextMonster();
             currentPlayer = nextPlayer();
-            boolean dead = currentPlayer.isDeath();
+            boolean dead = currentPlayer.isDead();
             
             if(dead)
                 currentPlayer.initTreasures();
