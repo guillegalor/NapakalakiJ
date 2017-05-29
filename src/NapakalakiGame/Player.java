@@ -25,7 +25,7 @@ public class Player {
     private BadConsequence pendingBadConsequence;
     private ArrayList<Treasure> hiddenTreasures;
     private ArrayList<Treasure> visibleTreasures;
-    static int MAXLEVEL = 10;
+    static int MAXLEVEL = 3;
     
     public Player(String n){
         name = n;
@@ -97,6 +97,7 @@ public class Player {
         BadConsequence badConsequence = m.getBadConsequence();
         int nLevels = badConsequence.getLevels();
         
+        level = Integer.max(1, level-nLevels);
         BadConsequence pendingBad = badConsequence.adjustToFitTreasureList(visibleTreasures, hiddenTreasures);
         setPendingBadConsequence(pendingBad);
     }
@@ -302,7 +303,7 @@ public class Player {
     }
     
     protected boolean shouldConvert(){
-       return true;//Dice.getInstance().nextNumber() == 6;
+       return Dice.getInstance().nextNumber() == 6;
     }
     
     protected int getOponentLevel(Monster m){
