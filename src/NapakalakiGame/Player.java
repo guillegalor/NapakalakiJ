@@ -130,10 +130,12 @@ public class Player {
     }
     
     private void dieIfNoTreasures(){
-        death = true;
+        if (hiddenTreasures.isEmpty() && visibleTreasures.isEmpty()) {
+            death = true;
+        }
     }
     
-    public boolean isDeath(){
+    public boolean isDead(){
         return death;
     }
     
