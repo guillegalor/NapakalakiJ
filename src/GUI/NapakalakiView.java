@@ -8,6 +8,8 @@ package GUI;
 import NapakalakiGame.Napakalaki;
 import NapakalakiGame.CombatResult;
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -167,8 +169,9 @@ public class NapakalakiView extends javax.swing.JFrame {
         
         switch(combatResult){
             case WINGAME:
-                jL_msgs.setText("YOU WON THE GAME!!!!!!");
-                break;
+                EndingDialog d = new EndingDialog(this, true);
+                d.setLocationRelativeTo(null);
+                d.end("Congrats " + napakalakiModel.getCurrentPlayer().getName() + ", you've won the game!!!");
             case WIN:
                 jL_msgs.setText("You won the combat");
                 break;
@@ -199,7 +202,7 @@ public class NapakalakiView extends javax.swing.JFrame {
             jB_nextTurn.setVisible(false);
         }
         else{
-            jL_msgs.setText("<html><body>You can't pass your turn\nYou may have more than 4 hidden treasures\nor you have a pending bad consequence<body></html>");
+            jL_msgs.setText("<html><body>You can't pass your turn, you may have more than 4 hidden treasures or you have a pending bad consequence<body></html>");
         }
         
         repaint();

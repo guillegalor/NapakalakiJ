@@ -96,7 +96,7 @@ public class PlayerNamesCapture extends javax.swing.JDialog {
                     .addComponent(name1)
                     .addComponent(name2)
                     .addComponent(name3, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(121, 121, 121))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
