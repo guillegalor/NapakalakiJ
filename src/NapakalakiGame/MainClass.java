@@ -21,6 +21,7 @@ public class MainClass {
         
         Dice.createInstance (napakalakiView);
         
+        namesCapture.setLocationRelativeTo(null);
         names = namesCapture.getNames();
         
         game.initGame(names);

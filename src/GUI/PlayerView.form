@@ -19,7 +19,7 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jP_visibleTreasures" max="32767" attributes="0"/>
+                  <Component id="jP_visibleTreasures" min="-2" pref="609" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jL_name" min="-2" max="-2" attributes="0"/>
@@ -60,7 +60,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="49" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jB_discard" max="32767" attributes="0"/>
                           <Component id="jB_makeVisible" min="-2" pref="149" max="-2" attributes="0"/>
@@ -71,18 +71,13 @@
                           <Component id="jB_discardAll" min="-2" pref="133" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="jP_hiddenTreasures" alignment="0" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="pendingBadConsequenceView1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jL_pendingBad" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="jL_hiddenTreasures" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jL_numHidden" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="337" pref="337" max="-2" attributes="0"/>
+                  <Component id="jP_hiddenTreasures" alignment="0" min="-2" pref="609" max="-2" attributes="0"/>
+                  <Component id="pendingBadConsequenceView1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jL_pendingBad" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="jL_hiddenTreasures" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jL_numHidden" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -138,14 +133,14 @@
                   <Component id="jL_numVisible" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jP_visibleTreasures" min="-2" pref="120" max="-2" attributes="0"/>
+              <Component id="jP_visibleTreasures" min="-2" pref="190" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jL_hiddenTreasures" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jL_numHidden" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jP_hiddenTreasures" min="-2" pref="120" max="-2" attributes="0"/>
+              <Component id="jP_hiddenTreasures" min="-2" pref="190" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jL_pendingBad" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>

@@ -22,10 +22,11 @@ public class NapakalakiView extends javax.swing.JFrame {
      */
     public NapakalakiView() {
         initComponents();
+        setTitle("Napakalaki");
         jP_arena.setBackground(new Color(214,167,85));
         monsterView2.setVisible(false);
-        jB_combat.setVisible(false);
-        jB_nextTurn.setVisible(false);
+        jB_combat.setEnabled(false);
+        jB_nextTurn.setEnabled(false);
         jL_msgs.setVisible(false);
     }
     
@@ -95,7 +96,9 @@ public class NapakalakiView extends javax.swing.JFrame {
         });
 
         jL_msgs.setFont(new java.awt.Font("Dialog", 2, 24)); // NOI18N
+        jL_msgs.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jL_msgs.setText("jLabel1");
+        jL_msgs.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jP_arenaLayout = new javax.swing.GroupLayout(jP_arena);
         jP_arena.setLayout(jP_arenaLayout);
@@ -126,7 +129,7 @@ public class NapakalakiView extends javax.swing.JFrame {
                     .addComponent(jB_nextTurn))
                 .addGap(52, 52, 52)
                 .addComponent(monsterView2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(35, 35, 35)
                 .addComponent(jL_msgs)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -157,9 +160,9 @@ public class NapakalakiView extends javax.swing.JFrame {
 
     private void jB_meetMonsterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_meetMonsterActionPerformed
         monsterView2.setVisible(true);
-        playerView2.showMakeVisible(false);
-        jB_combat.setVisible(true);
-        jB_meetMonster.setVisible(false);
+        playerView2.enableMakeVisible(false);
+        jB_combat.setEnabled(true);
+        jB_meetMonster.setEnabled(false);
               
         repaint();
     }//GEN-LAST:event_jB_meetMonsterActionPerformed
@@ -185,9 +188,9 @@ public class NapakalakiView extends javax.swing.JFrame {
         
         playerView2.setPlayer(napakalakiModel.getCurrentPlayer());
         jL_msgs.setVisible(true);
-        jB_nextTurn.setVisible(true);
-        jB_combat.setVisible(false);
-        playerView2.showMakeVisible(true);
+        jB_nextTurn.setEnabled(true);
+        jB_combat.setEnabled(false);
+        playerView2.enableMakeVisible(true);
         
         repaint();
     }//GEN-LAST:event_jB_combatActionPerformed
@@ -198,8 +201,8 @@ public class NapakalakiView extends javax.swing.JFrame {
             monsterView2.setMonster(napakalakiModel.getCurrentMonster());
             monsterView2.setVisible(false);
             jL_msgs.setVisible(false);
-            jB_meetMonster.setVisible(true);
-            jB_nextTurn.setVisible(false);
+            jB_meetMonster.setEnabled(true);
+            jB_nextTurn.setEnabled(false);
         }
         else{
             jL_msgs.setText("<html><body>You can't pass your turn, you may have more than 4 hidden treasures or you have a pending bad consequence<body></html>");

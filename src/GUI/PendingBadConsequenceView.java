@@ -60,10 +60,6 @@ public class PendingBadConsequenceView extends javax.swing.JPanel {
         jL_visible = new javax.swing.JLabel();
         jL_hidden = new javax.swing.JLabel();
 
-        jL_visible.setText("jLabel1");
-
-        jL_hidden.setText("jLabel2");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
