@@ -22,7 +22,7 @@ public class CultistPlayer extends Player  {
         myCultistCard = c;
     }
     
-    public int getTotalCultistPlayers(){
+    static public int getTotalCultistPlayers(){
         return totalCultistPlayers;
     }
     

@@ -22,6 +22,7 @@ public class PlayerNamesCapture extends javax.swing.JDialog {
      */
     public PlayerNamesCapture(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        setTitle("Jugadores");
         initComponents();
         this.addWindowListener (new WindowAdapter() {
             @Override

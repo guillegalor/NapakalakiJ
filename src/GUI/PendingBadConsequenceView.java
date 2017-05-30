@@ -44,7 +44,6 @@ public class PendingBadConsequenceView extends javax.swing.JPanel {
             jL_hidden.setText("Lose these hidden: "+ ((SpecificBadConsequence)pendingBadModel).getSpecificHiddenTreasures().stream().map(Object::toString).collect(Collectors.joining(", ")));
         }
         
-        revalidate();
         repaint();
     }
 

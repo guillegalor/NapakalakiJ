@@ -27,12 +27,15 @@ public class MonsterView extends javax.swing.JPanel {
     
     public void setMonster(Monster nModel){
         monsterModel = nModel;
+        
         jL_name.setText(monsterModel.getName());
         jL_combatLevel.setText(Integer.toString(monsterModel.getCombatLevel()));
         jL_combatLevelCultist.setText(Integer.toString(monsterModel.getCombatLevelAgainstCultistPlayer()));
+        
         prizeView1.setPrize(monsterModel.getPrize());
         badConsequenceView1.setBadConsequence(monsterModel.getBadConsequence());
         
+        revalidate();
         repaint();
     }
     

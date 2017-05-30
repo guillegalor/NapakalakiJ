@@ -20,6 +20,7 @@ public class EndingDialog extends javax.swing.JDialog {
     public EndingDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setTitle("End of game");
         this.addWindowListener (new WindowAdapter() {
             @Override
             public void windowClosing (WindowEvent e) {
@@ -51,7 +52,7 @@ public class EndingDialog extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jL_msg)
-                .addContainerGap(414, Short.MAX_VALUE))
+                .addContainerGap(365, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

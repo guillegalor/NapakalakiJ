@@ -6,9 +6,6 @@
 package GUI;
 
 import NapakalakiGame.BadConsequence;
-import NapakalakiGame.NumericBadConsequence;
-import NapakalakiGame.SpecificBadConsequence;
-import java.util.stream.Collectors;
 
 /**
  *

@@ -23,6 +23,7 @@ public class PlayerView extends javax.swing.JPanel {
      * Creates new form PlayerView
      */
     public PlayerView() {
+        //TODO Añadir carta sectario
         initComponents();
     }
     
@@ -38,6 +39,7 @@ public class PlayerView extends javax.swing.JPanel {
      */
     public void setPlayer(Player nModel){
         playerModel = nModel;
+        
         jL_name.setText(playerModel.getName());
         jL_level.setText(Integer.toString(playerModel.getLevels()));
         jL_enemy.setText(playerModel.getEnemyS());
@@ -214,7 +216,7 @@ public class PlayerView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jP_visibleTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jP_visibleTreasures, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jL_name)
@@ -244,7 +246,7 @@ public class PlayerView extends javax.swing.JPanel {
                                             .addComponent(jL_canSteal)
                                             .addComponent(jL_combatLevel)))
                                     .addComponent(jL_numVisible))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jB_discard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jB_makeVisible, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -252,13 +254,16 @@ public class PlayerView extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jB_stealTreasure, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jB_discardAll, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jP_hiddenTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pendingBadConsequenceView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jL_pendingBad)
+                    .addComponent(jP_hiddenTreasures, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jL_hiddenTreasures)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jL_numHidden)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pendingBadConsequenceView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jL_pendingBad)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jL_hiddenTreasures)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jL_numHidden)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -299,13 +304,13 @@ public class PlayerView extends javax.swing.JPanel {
                     .addComponent(jL_visibleTreasures)
                     .addComponent(jL_numVisible))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jP_visibleTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jP_visibleTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jL_hiddenTreasures)
                     .addComponent(jL_numHidden))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jP_hiddenTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jP_hiddenTreasures, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jL_pendingBad)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -333,13 +338,13 @@ public class PlayerView extends javax.swing.JPanel {
     }//GEN-LAST:event_jB_discardActionPerformed
 
     private void jB_discardAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_discardAllActionPerformed
-        napakalakiModel.discardAll();
+        playerModel.discardAllTreasures();
         
         setPlayer(napakalakiModel.getCurrentPlayer());
     }//GEN-LAST:event_jB_discardAllActionPerformed
 
     private void jB_stealTreasureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_stealTreasureActionPerformed
-        napakalakiModel.getCurrentPlayer().stealTreasure();
+        playerModel.stealTreasure();
         
         setPlayer(napakalakiModel.getCurrentPlayer());
     }//GEN-LAST:event_jB_stealTreasureActionPerformed
